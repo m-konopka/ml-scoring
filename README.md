@@ -5,11 +5,11 @@
 
 Distribution of GINI across crossvalidation folds and ROC curve for example train/test split:
 
-<img src="./Img/lr_cv_roc.png" width="800"/>
+<img src="./Img/logreg_cv_roc.png" width="800"/>
 
 Shap values:
 
-<img src="./Img/lr_shap.png" width="800"/>
+<img src="./Img/logreg_shap.png" width="800"/>
 
 ## Results
 
