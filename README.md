@@ -1,6 +1,5 @@
 # ml-scoring
 
-
 ## Logistic regression
 
 Distribution of GINI across crossvalidation folds and ROC curve for example train/test split:
