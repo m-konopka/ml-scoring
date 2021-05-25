@@ -24,9 +24,9 @@ conda env create -f ml-scoring.yml
 ## Results
 
 
-The main performance metric used in the thesis is GINI coefficient, as it is more popular in the credit risk field. GINI coefficient is directly related to ROC-AUC by the following formula
+The main performance metric used in the thesis GINI coefficient, as it is more popular in the credit risk field. GINI coefficient is directly related to ROC-AUC by the following formula
 
-$$GINI = 2 \cdot AUC - 1.$$
+$GINI = 2 \cdot AUC - 1.$
 
 
 Summary of performed experiments:
@@ -42,11 +42,11 @@ Conclusions of performed experiments:
 
 1. There is a significant difference in performance between logistic regression (mean cross-validated GINI=0.476), decision tree (GINI=0.513), and random forest and LightGBM (GINI=0.560 and GINI=0.561). This observation holds also for the out-of-sample test set. What is more, the average precision (a metric more sensitive for highly imbalanced data) indicates the same conclusion - classical approaches have significantly worse performance (logistic regression AP=0.504, decision tree AP=0.526, random forest AP=0.567, LightGBM AP=0.565).
 
-<img src="./Experiment_results/Summary/val_gini.png" width="800"/>
+![image](./Experiment_results/Summary/val_gini.png)
 
 *Figure 1: GINI obtained during 10-5 cross-validation for all tested algorithms (source: own study)*
 
-<img src="./Experiment_results/Summary/roc_pr.png" width="1600"/>
+![image](./Experiment_results/Summary/roc_pr.png)
 
 *Figure 2: Receiver operating characteristic curve and precision-recall curve for all tested algorithms (source: own study)*
 
@@ -55,12 +55,12 @@ Conclusions of performed experiments:
    - However, even for smaller sample sizes (less than 1000 instances), logistic regression is outperformed by rf/lgbm.
    - Interestingly, the decision tree classifier seems to benefit from larger training samples more than rf/lgb. Nevertheless, its performance was worse for any training set size compared to rf/lgb and only for training datasets with more than 2000 instances, it was better than logistic regression.
 
-<img src="./Experiment_results/Summary/set_size.png" width="600"/>
+![image](./Experiment_results/Summary/set_size.png)
 
 *Figure 3: Performance of models for increasing training set size (source: own study)*
 
 3. Although random forest obtained similar performance to LightGBM, the time needed to perform hyperparameter tuning was significantly larger. Therefore, LightGBM seems to be a much better choice to use in practice.
 
-<img src="./Experiment_results/Summary/times.png" width="600"/>
+![image](./Experiment_results/Summary/times.png)
 
 *Figure 3: Time [min] needed to perform 150 trials in the optuna hyperparameter optimization study for all tested algorithms (source: own study)*
