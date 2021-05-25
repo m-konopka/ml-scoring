@@ -24,10 +24,9 @@ conda env create -f ml-scoring.yml
 ## Results
 
 
-The main performance metric used in the thesis GINI coefficient, as it is more popular in the credit risk field. GINI coefficient is directly related to ROC-AUC by the following formula
+The main performance metric used in the thesis GINI coefficient, as it is more popular in the credit risk field. GINI coefficient is directly related to ROC-AUC by the following formula 
 
-$GINI = 2 \cdot AUC - 1.$
-
+GINI = 2 * AUC - 1.
 
 Summary of performed experiments:
 
@@ -46,11 +45,11 @@ Conclusions of performed experiments:
 
 *Figure 1: GINI obtained during 10-5 cross-validation for all tested algorithms (source: own study)*
 
-![image](./Experiment_results/Summary/roc_pr.png)
+![image](./Experiment_results/Summary/roc.png)
 
-*Figure 2: Receiver operating characteristic curve and precision-recall curve for all tested algorithms (source: own study)*
+*Figure 2: Receiver operating characteristic curve for all tested algorithms (source: own study)*
 
-2. Dataset used for the tests is relatively large (30k instances splitted into 20k training samples and 10k test samples). To investigate the relationship between the training data size and the studied models, we designed an experiment where we have limited the training samples to 50, 100, 500, 1000, 2000, 3000, 5000, 7000, 10000, 20000 instances and test performance of the models created on these datasets (in every case on the full 10k test set):
+1. Dataset used for the tests is relatively large (30k instances splitted into 20k training samples and 10k test samples). To investigate the relationship between the training data size and the studied models, we designed an experiment where we have limited the training samples to 50, 100, 500, 1000, 2000, 3000, 5000, 7000, 10000, 20000 instances and test performance of the models created on these datasets (in every case on the full 10k test set):
    - We observed that logistic regression achieve a plateau around 1000 samples, whereas random forest and LightGBM around 5000 samples. Thus, more advanced algorithms need more data.
    - However, even for smaller sample sizes (less than 1000 instances), logistic regression is outperformed by rf/lgbm.
    - Interestingly, the decision tree classifier seems to benefit from larger training samples more than rf/lgb. Nevertheless, its performance was worse for any training set size compared to rf/lgb and only for training datasets with more than 2000 instances, it was better than logistic regression.
