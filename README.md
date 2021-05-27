@@ -1,6 +1,6 @@
 # ml-scoring
 
-Repository with code relevant to the master's thesis "Comparison of classic models of credit risk assessment with models based on an advanced machine learning algorithms" written at Gdansk University of Technology, Faculty of Applied Physics and Mathematics.
+Repository with code relevant to the master's thesis written at Gdansk University of Technology, Faculty of Applied Physics and Mathematics. The aim of the thesis was to compare classical machine learning models used in the field of credit scoring (logistic regression, decision trees) with models based on more advanced supervised learning algorithms (random forest, gradient boosting trees).
 
 ## Preparation
 - Prerequisites
@@ -10,7 +10,7 @@ Repository with code relevant to the master's thesis "Comparison of classic mode
   - lightgbm 3.2.1
   - optuna 2.7.0
 - Data:
-  - In the experiments we used [*Default of credit card clients data set from UCI Machine Learning repository*](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
+  - In the experiments we use [*Default of credit card clients data set from UCI Machine Learning repository*](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
   - 2/3 of the data was randomly selected as a training set and 1/3 as a test set. When performing hyperparameter optimization, the train set was further splitted using 10-5 fold cross-validation scheme.
 
 ## Reproduction
@@ -24,11 +24,9 @@ conda env create -f ml-scoring.yml
 ## Results
 
 
-The main performance metric used in the thesis is GINI coefficient, as it is more popular in the credit risk field. GINI coefficient is directly related to ROC AUC by the following formula 
+The main performance metric used in the thesis GINI coefficient, as it is more popular in the credit risk field. GINI coefficient is directly related to ROC-AUC by the following formula 
 
 GINI = 2 * AUC - 1.
-
-Average precision (AP) was used as a complementary performance metric.
 
 Summary of performed experiments:
 
@@ -36,8 +34,8 @@ Summary of performed experiments:
 |-------------------:|--------------:|-------------:|----------:|--------:|
 | LogisticRegression | 0.476         | 0.009        | 0.475     | 0.504   |
 | DecisionTree       | 0.513         | 0.010        | 0.523     | 0.526   |
-| RandomForest       | 0.560         | 0.009        | 0.571     | 0.567   |
-| **LightGBM**           | 0.561         | 0.009        | 0.572     | 0.565   |
+| RandomForest       | 0.560         | 0.009        | 0.571     | **0.567**   |
+| **LightGBM**           | **0.561**         | 0.009        | **0.572**     | 0.565   |
 
 Conclusions of performed experiments:
 
@@ -45,23 +43,27 @@ Conclusions of performed experiments:
 
 ![image](./Experiment_results/Summary/val_gini.png)
 
-*Figure 1: GINI obtained during 10-5 cross-validation for all tested algorithms (source: own study)*
+*Figure 1: GINI obtained during 10-5 cross-validation for all tested algorithms*
 
 ![image](./Experiment_results/Summary/roc.png)
 
-*Figure 2: Receiver operating characteristic curve for all tested algorithms (source: own study)*
+*Figure 2: ROC curve for all tested algorithms*
 
-1. Dataset used for the tests is relatively large (30k instances splitted into 20k training samples and 10k test samples). To investigate the relationship between the training data size and the studied models, we designed an experiment where we have limited the training samples to 50, 100, 500, 1000, 2000, 3000, 5000, 7000, 10000, 20000 instances and test performance of the models created on these datasets (in every case on the full 10k test set):
-   - We observed that logistic regression achieve a plateau around 1000 samples, whereas random forest and LightGBM around 5000 samples. Thus, more advanced algorithms need more data.
-   - However, even for smaller sample sizes (less than 1000 instances), logistic regression is outperformed by rf/lgbm.
-   - Interestingly, the decision tree classifier seems to benefit from larger training samples more than rf/lgb. Nevertheless, its performance was worse for any training set size compared to rf/lgb and only for training datasets with more than 2000 instances, it was better than logistic regression.
+![image](./Experiment_results/Summary/pr.png)
+
+*Figure 3: Precision-Recall curve for all tested algorithms*
+
+2. Dataset used in experiments is relatively large (30k instances splitted into 20k training samples and 10k test samples). To investigate the relationship between the training data size and the algoritms performance, we designed an experiment where models were build on training set limited to 50, 100, 500, 1000, 2000, 3000, 5000, 7000, 10000, 2000 instances (at the same time performance was measured in every case on full 10k test set):
+   - Logistic regression achieve a plateau around 1000 samples, whereas for random forest and LightGBM this cutoff was around 5000 samples.
+   - Even for smaller sample sizes (less than 1000 instances), logistic regression is outperformed by rf/lgbm.
+   - Decision tree has worse performance than rf/lgbm, but outperforms logistic regression for training sets with more than 2000 instances.
 
 ![image](./Experiment_results/Summary/set_size.png)
 
-*Figure 3: Performance of models for increasing training set size (source: own study)*
+*Figure 4: Performance of models for increasing training set size*
 
 3. Although random forest obtained similar performance to LightGBM, the time needed to perform hyperparameter tuning was significantly larger. Therefore, LightGBM seems to be a much better choice to use in practice.
 
 ![image](./Experiment_results/Summary/times.png)
 
-*Figure 4: Time [min] needed to perform 150 trials in the optuna hyperparameter optimization study for all tested algorithms (source: own study)*
+*Figure 5: Time [min] needed to perform 150 trials in the optuna hyperparameter optimization study for all tested algorithms*
