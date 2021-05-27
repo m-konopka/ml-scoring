@@ -1,6 +1,6 @@
 # ml-scoring
 
-Repository with code relevant to the master's thesis written at Gdansk University of Technology, Faculty of Applied Physics and Mathematics. The aim of the thesis was to compare classical machine learning models used in the field of credit scoring (logistic regression, decision trees) with models based on more advanced supervised learning algorithms (random forest, gradient boosting trees).
+Repository with code relevant to the master's thesis "Comparison of classic models of credit risk assessment with models based on an advanced machine learning algorithms" written at Gdansk University of Technology, Faculty of Applied Physics and Mathematics.
 
 ## Preparation
 - Prerequisites
@@ -10,7 +10,7 @@ Repository with code relevant to the master's thesis written at Gdansk Universit
   - lightgbm 3.2.1
   - optuna 2.7.0
 - Data:
-  - In the experiments we use [*Default of credit card clients data set from UCI Machine Learning repository*](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
+  - In the experiments we used [*Default of credit card clients data set from UCI Machine Learning repository*](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
   - 2/3 of the data was randomly selected as a training set and 1/3 as a test set. When performing hyperparameter optimization, the train set was further splitted using 10-5 fold cross-validation scheme.
 
 ## Reproduction
@@ -24,13 +24,15 @@ conda env create -f ml-scoring.yml
 ## Results
 
 
-The main performance metric used in the thesis GINI coefficient, as it is more popular in the credit risk field. GINI coefficient is directly related to ROC-AUC by the following formula 
+The main performance metric used in the thesis GINI coefficient, as it is more popular in the credit risk field. GINI coefficient is directly related to ROC AUC by the following formula 
 
 GINI = 2 * AUC - 1.
 
+Average precision (AP) was used as a complementary performance metric.
+
 Summary of performed experiments:
 
-|              Model | Mean dev GINI | Std dev GINI | Test GINI | Test AP |
+|              Model | Mean val GINI | Std val GINI | Test GINI | Test AP |
 |-------------------:|--------------:|-------------:|----------:|--------:|
 | LogisticRegression | 0.476         | 0.009        | 0.475     | 0.504   |
 | DecisionTree       | 0.513         | 0.010        | 0.523     | 0.526   |
