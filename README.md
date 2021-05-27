@@ -10,7 +10,7 @@ Repository with code relevant to the master's thesis "Comparison of classic mode
   - lightgbm 3.2.1
   - optuna 2.7.0
 - Data:
-  - In the experiments we use [*Default of credit card clients data set from UCI Machine Learning repository*](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
+  - In the experiments we used [*Default of credit card clients data set from UCI Machine Learning repository*](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
   - 2/3 of the data was randomly selected as a training set and 1/3 as a test set. When performing hyperparameter optimization, the train set was further splitted using 10-5 fold cross-validation scheme.
 
 ## Reproduction
