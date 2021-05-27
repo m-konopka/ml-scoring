@@ -1,6 +1,6 @@
 # ml-scoring
 
-Repository with code relevant to the master's thesis written at Gdansk University of Technology, Faculty of Applied Physics and Mathematics. The aim of the thesis was to compare classical machine learning models used in the field of credit scoring (logistic regression, decision trees) with models based on more advanced supervised learning algorithms (random forest, gradient boosting trees).
+Repository with code relevant to the master's thesis "Comparison of classic models of credit risk assessment with models based on an advanced machine learning algorithms" written at Gdansk University of Technology, Faculty of Applied Physics and Mathematics.
 
 ## Preparation
 - Prerequisites
