@@ -24,9 +24,11 @@ conda env create -f ml-scoring.yml
 ## Results
 
 
-The main performance metric used in the thesis is GINI coefficient, as it is more popular in the credit risk field. GINI coefficient is directly related to ROC-AUC by the following formula 
+The main performance metric used in the thesis is GINI coefficient, as it is more popular in the credit risk field. GINI coefficient is directly related to ROC AUC by the following formula 
 
 GINI = 2 * AUC - 1.
+
+Average precision (AP) was used as a complementary performance metric.
 
 Summary of performed experiments:
 
