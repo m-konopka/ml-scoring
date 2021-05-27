@@ -62,4 +62,4 @@ Conclusions of performed experiments:
 
 ![image](./Experiment_results/Summary/times.png)
 
-*Figure 3: Time [min] needed to perform 150 trials in the optuna hyperparameter optimization study for all tested algorithms (source: own study)*
+*Figure 4: Time [min] needed to perform 150 trials in the optuna hyperparameter optimization study for all tested algorithms (source: own study)*
