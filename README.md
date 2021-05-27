@@ -11,7 +11,7 @@ Repository with code relevant to the master's thesis "Comparison of classic mode
   - optuna 2.7.0
 - Data:
   - In the experiments we used [*Default of credit card clients data set from UCI Machine Learning repository*](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
-  - 2/3 of the data was randomly selected as a training set and 1/3 as a test set. When performing hyperparameter optimization, the train set was further splitted using 10-5 fold cross-validation scheme.
+  - 2/3 of the data was randomly selected as a training set and 1/3 as a test set. When performing hyperparameter optimization, the train set was further splitted using 10 5-fold cross-validation scheme.
 
 ## Reproduction
 
@@ -45,7 +45,7 @@ Conclusions of performed experiments:
 
 ![image](./Experiment_results/Summary/val_gini.png)
 
-*Figure 1: GINI obtained during 10-5 cross-validation for all tested algorithms*
+*Figure 1: GINI obtained during 10 5-fold cross-validation for all tested algorithms*
 
 ![image](./Experiment_results/Summary/roc.png)
 
