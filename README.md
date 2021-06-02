@@ -1,6 +1,6 @@
 # ml-scoring
 
-Repository with code relevant to the master's thesis "Comparison of classic models of credit risk assessment with models based on an advanced machine learning algorithms" written at Gdansk University of Technology, Faculty of Applied Physics and Mathematics.
+Repository with code relevant to the master's thesis "Comparison of classic credit risk assessment models with models based on an advanced machine learning algorithms." written at Gdansk University of Technology, Faculty of Applied Physics and Mathematics.
 
 ## Preparation
 - Prerequisites
